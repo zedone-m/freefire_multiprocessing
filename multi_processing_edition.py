@@ -22,8 +22,12 @@ def windows():
     return path
 def Choosing_Items():
   items=[]
-  path=windows()
-  skins=path+"\\freefireskins.txt"
+  
+  if "win" in sys.platform:
+    path=windows()
+    skins=path+"\\freefireskins.txt"
+  else:
+    skins="freefireskins.txt"
   with open(skins) as load:
     loaded = [items.rstrip().strip() for items in load]
     for lines in loaded:
