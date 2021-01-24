@@ -136,11 +136,17 @@ class Free:
     print(Fore.RED+"NOTE:"+Fore.YELLOW+"STOPING PROCESSING")
     sys.exit()
  def data_saving(s=0):
-  with open("path+\\data.txt") as f:
+  if "win" in system.platform:
+   with open(path+"\\data.txt") as f:
     data= f.readlines()
     data= int(data)+int(s)
     f.write(data)
-    return data
+  else:
+   with open("data.txt") as f: 
+    data= f.readlines()
+    data= int(data)+int(s)
+    f.write(data)
+  return data
 #      print("you tried",s, "times")
 #     s=s+1
 # exploiting(link,s)*
